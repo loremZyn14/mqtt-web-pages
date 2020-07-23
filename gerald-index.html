@@ -1,0 +1,132 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MQTT</title>
+
+    <!-- Added the Bootstrap CDN -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+ 
+    <div class="container-fluid ">
+        <h1 class="text-center">MQTT</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <div class=" card ">
+                    <div class="card-header ">
+                        <h3>Broker</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="broker-input">Topic</label>
+                            <input type="text" class="form-control" id="broker-input" aria-describedby="brokerHelp" value="wss://mqtt.eclipse.org:443/mqtt">
+                        </div>
+                        
+                        <button type="button" class="btn btn-primary " id="btn-broker" >Connect</button>
+                        
+                        <div class="form-group mt-2">
+                            <p>Status</p>
+                            <div class="container p-2 border rounded" id="status">
+                                Press Connect
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mt-3">
+                    <h4 class="card-header">Incoming Messages</h4>
+                    <div class="card-body p-0">
+                        <table class="table">
+                            <thead>
+                                <th>Topic</th>
+                                <th>Payload</th>
+                                <th>Timestamp</th>
+                            </thead>
+                            <tbody id="incomingMsg" >
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class=" card ">
+                    <div class="card-header ">
+                        <h3>Publish</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="topic-input">Topic</label>
+                            <input type="text" class="form-control" id="topic-input" aria-describedby="topicHelp" placeholder="Enter topic..">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-input">Message</label>
+                            <input type="text" class="form-control" id="message-input" aria-describedby="messageHelp" placeholder="Enter message..">
+                        </div>
+                        <div class="form-group">
+                        
+                            <input type="button" class="btn btn-primary form-control" id="btn-publish" aria-describedby="publisheHelp" value=Publish>
+                        </div>
+                    </div>
+                </div>
+                <div class="card  mt-3">
+                    <h4 class="card-header">Published Messages</h4>
+                    <div class="card-body p-0">
+                        <table class="table">
+                            <thead>
+                                <th>Topic</th>
+                                <th>Payload</th>
+                                <th>Timestamp</th>
+                            </thead>
+                            <tbody id="publishedMsg" >
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class=" card ">
+                    <div class="card-header ">
+                        <h3>Subscribe</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="topic-subscribe">Topic</label>
+                            <input type="text" class="form-control" id="topic-subscribe" aria-describedby="topicSubscribeHelp" placeholder="Enter topic..">
+                        </div>
+                        <div class="form-group">
+                        
+                            <input type="button" class="btn btn-primary form-control" id="btn-subscribe" aria-describedby="publisheHelp" value=Subscribe>
+                        </div>
+                    </div>
+                </div>
+                <div class="card  mt-3">
+                    <h4 class="card-header">Subscribed Messages</h4>
+                    <div class="card-body p-0">
+                        <table class="table">
+                            <thead>
+                                <th>Topic</th>
+                                <th>Timestamp</th>
+                            </thead>
+                            <tbody id="subscribeMsg" >
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+<script src="./browserMqtt.js"></script>
+<script src="./afable-index.js"></script>
+</html>
